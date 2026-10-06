@@ -4,7 +4,7 @@ A Hyderabad-focused local business directory built with the MERN stack. LocalFin
 
 ## Live Demo
 
-**Website:** https://client-7o8-er.vercel.app/
+**Website:** https://localfind-73.vercel.app
 
 **GitHub:** https://github.com/MaheshPatil31/LocalFind
 
