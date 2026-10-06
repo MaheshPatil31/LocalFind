@@ -1,0 +1,5 @@
+import React from 'react';
+export default function ReviewList({ reviews, currentUserId, onEdit, onDelete, deletingId }) {
+  if (!reviews.length) return <p className="detail-copy">No reviews yet. Be the first to share your experience.</p>;
+  return <div className="review-list">{reviews.map((review) => { const isOwn = review.user?._id === currentUserId || review.user?.id === currentUserId; return <article className="review-item" key={review._id}><div className="review-item-top"><div><strong>{review.user?.name || 'LocalFind customer'}</strong><span className="review-stars" aria-label={`${review.rating} out of 5 stars`}>{'★'.repeat(review.rating)}<i>{'★'.repeat(5 - review.rating)}</i></span></div><time dateTime={review.createdAt}>{new Date(review.createdAt).toLocaleDateString()}</time></div><p>{review.comment}</p>{isOwn && <div className="review-owner-actions"><button type="button" onClick={() => onEdit(review)}>Edit</button><button type="button" disabled={deletingId === review._id} onClick={() => onDelete(review._id)}>Delete</button></div>}</article>; })}</div>;
+}
